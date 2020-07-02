@@ -7,7 +7,6 @@ import Image from 'react-native-image-progress';
 import ProgressBar from 'react-native-progress/Bar';
 import styles from './styles';
 
-
 const config = {
   velocityThreshold: 0.3,
   directionalOffsetThreshold: 80,
