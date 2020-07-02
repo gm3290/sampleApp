@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {connect} from 'react-redux';
 import {View, Image} from 'react-native';
 import {Container, Content} from 'native-base';
@@ -12,17 +12,26 @@ const config = {
 
 const ImagePreview = ({navigation, photos}) => {
   const photoIndex = navigation.getParam('photoIndex', null);
-  const photo = photos[photoIndex];
-  if (!photos[photoIndex]) {
+  const [localIndex, setIndex] = useState(photoIndex);
+  const photo = photos[localIndex];
+  if (!photo) {
     return <View />;
   }
 
   const onSwipeLeftHandler = () => {
-    console.log('left===>', photoIndex);
+    let newIndex = localIndex + 1;
+    if (newIndex > photos.length) {
+      newIndex = 0;
+    }
+    setIndex(newIndex);
   };
 
   const onSwipeRightHandler = () => {
-    console.log('right===>', photoIndex);
+    let newIndex = localIndex - 1;
+    if (newIndex < 0) {
+      newIndex = photos.length;
+    }
+    setIndex(newIndex);
   };
 
   return (

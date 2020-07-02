@@ -15,7 +15,12 @@ const AppNavigator = createStackNavigator(
   {
     Home: SearchScreen,
     Details: DetailsScreen,
-    Preview: ImagePreview,
+    Preview: {
+      screen: ImagePreview,
+      navigationOptions: {
+        gestureEnabled: false,
+      },
+    },
   },
   {
     initialRouteName: 'Home',
