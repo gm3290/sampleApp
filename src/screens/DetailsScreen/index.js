@@ -16,6 +16,14 @@ const DetailsScreen = ({navigation, getPhotos, users, photos}) => {
   }, [username, getPhotos]);
   const user = users.find((u) => u.username === username);
 
+  if (!user) {
+    return (
+      <View>
+        <H2 style={styles.username}>Invalid user</H2>
+      </View>
+    );
+  }
+
   const onPressPhotoHandler = (photoIndex) => () => {
     navigation.navigate('Preview', {photoIndex});
   };
