@@ -28,7 +28,6 @@ const AppNavigator = createStackNavigator(
 );
 
 const AppContainer = createAppContainer(AppNavigator);
-// export default createAppContainer(AppNavigator);
 
 export default () => (
   <Root>

@@ -1,9 +1,12 @@
 import React, {useState} from 'react';
 import {connect} from 'react-redux';
-import {View, Image} from 'react-native';
+import {View} from 'react-native';
 import {Container, Content} from 'native-base';
 import GestureRecognizer from 'react-native-swipe-gestures';
+import Image from 'react-native-image-progress';
+import ProgressBar from 'react-native-progress/Bar';
 import styles from './styles';
+
 
 const config = {
   velocityThreshold: 0.3,
@@ -41,7 +44,11 @@ const ImagePreview = ({navigation, photos}) => {
           onSwipeLeft={onSwipeLeftHandler}
           onSwipeRight={onSwipeRightHandler}
           config={config}>
-          <Image style={styles.image} source={{uri: photo.urls.full}} />
+          <Image
+            source={{uri: photo.urls.full}}
+            indicator={ProgressBar}
+            style={styles.image}
+          />
         </GestureRecognizer>
       </Content>
     </Container>
