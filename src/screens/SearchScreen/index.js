@@ -21,7 +21,7 @@ const SearchScreen = ({users, searchRequest, navigation}) => {
       <Content>
         <Item rounded>
           <Input
-            placeholder="Regular Textbox"
+            placeholder="Enter a username!"
             onChangeText={debounce(onChangeTerm, 500)}
           />
         </Item>
